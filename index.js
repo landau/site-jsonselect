@@ -53,6 +53,14 @@ var app = React.createClass({
     this.setState(s);
   },
 
+  format: function() {
+    try {
+      this.setState({
+        json: JSON.stringify(JSON.parse(this.state.json), null, ' ')
+      });
+    } catch(e) {}
+  },
+
   render: function() {
     var err = null;
     var parsed = null;
@@ -94,6 +102,7 @@ var app = React.createClass({
         { className: 'row' },
         dom.div(
           { className: 'col-md-6' },
+          dom.button({ className: 'btn btn-sm btn-primary', onClick: this.format }, 'Format'),
           dom.textarea({
             /*jshint indent:false */
             className: 'form-control',
