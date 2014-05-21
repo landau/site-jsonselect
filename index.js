@@ -112,7 +112,9 @@ var app = React.createClass({
           })
           /*jshint indent:2 */
         ),
-        dom.div({ className: 'col-md-6' }, err ? err.message : JSON.stringify(comp, null, ' '))
+        dom.div(
+          { className: 'col-md-6 output' },
+          dom.pre(null, err ? err.message : JSON.stringify(comp, null, ' ')))
       )
     );
   }
